@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+	<title>Multiplication</title>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div ng-controller="displayNum">
+	<div ng-if="content"> {{ content }} </div>
+	<div ng-if= "!content">N/A</div>
+
+</div>
+
+<div ng-controller="multiCtr" initial-number-limit="10">
+	<input type="number" ng-model="numberLimit" placeholder="Enter a number">
+	<table>
+		<tr ng-repeat="n in numbers">
+			<td ng-repeat="m in numbers"
+				ng-click="setActiveNumber(compute(n,m))" 
+				ng-mouseover="setActiveFactors(n ,m)" 
+				ng-mouseleave="clearActiveFactors()"
+				ng-class="{hover: matchesFactor(n, m)}">
+
+				{{ compute(n, m) }}
+			</td>
+		</tr>
+
+	</table>
+</div>
+
+<div ng-controller="displayNum">
+	<div ng-if="content">The value is selected is: {{content}}</div>
+	<div ng-if="!content"> You have not selected anything yet</div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
